@@ -19,7 +19,10 @@ const navigate= useNavigate()
         console.log({email,password})
         loginuser(email,password)
         .then(res=>{
-            const user = {email:email}
+           // console.log('signin',res.email)
+            const user = {email:res.user.email}
+            
+            console.log(user)
              axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
                .then(data =>{console.log(data.data)})
             // navigate(location?.state)
